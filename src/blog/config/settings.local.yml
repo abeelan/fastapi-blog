@@ -1,0 +1,4 @@
+# 根据 Dynaconf 规则，.local.yml 为本地开发配置
+# 优先级低，会覆盖之前的配置
+
+LOG_LEVEL: DEBUG
