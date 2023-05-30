@@ -1,4 +1,16 @@
-# 根据 Dynaconf 规则，.local.yml 为本地开发配置
+# 根据 Dynaconf 规则，.local.yml 为本地开发配置，已添加到 .gitignore 中
 # 优先级低，会覆盖之前的配置
 
 LOG_LEVEL: DEBUG
+
+# ######################################################################################################
+# https://docs.sqlalchemy.org/en/13/core/engines.html
+DATABASE:
+  DRIVER: mysql
+  NAME: blog
+  HOST: 127.0.0.1
+  PORT: 3306
+  USERNAME: root
+  PASSWORD: root
+  QUERY:
+    charset: utf8mb4
