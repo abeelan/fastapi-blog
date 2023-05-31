@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "fastapi-blog"
+name = "blog"
 version = "0.1.0"
 description = "基于 fastapi 异步 web 框架的博客项目"
 authors = ["lan <lanzy.nice@gmail.com>"]
 readme = "README.md"
-packages = [{include = "fastapi_blog"}]
+
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -8,7 +8,13 @@ from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 
 from .models import Article
-from .schemas import CreateSchema, ModelType, UpdateSchema, CreateArticleSchema, UpdateArticleSchema
+from .schemas import (
+    CreateSchema,
+    ModelType,
+    UpdateSchema,
+    CreateArticleSchema,
+    UpdateArticleSchema,
+)
 
 
 class BaseDAO(Generic[ModelType, CreateSchema, UpdateSchema]):
@@ -18,7 +24,11 @@ class BaseDAO(Generic[ModelType, CreateSchema, UpdateSchema]):
         result = session.query(self.model).offset(offset).limit(limit).all()
         return result
 
-    def get_by_id(self, session: Session, pk: int, ) -> ModelType:
+    def get_by_id(
+        self,
+        session: Session,
+        pk: int,
+    ) -> ModelType:
         return session.query(self.model).get(pk)
 
     def create(self, session: Session, obj_in: CreateSchema) -> ModelType:

@@ -5,13 +5,12 @@
 import uvicorn
 from fastapi import FastAPI
 
-from . import middlewares, routes
-from .config import settings
-from .log import init_log
+from src.blog import middlewares, routes
+from src.blog.config import settings
+from src.blog.log import init_log
 
 
 class Server:
-
     def __init__(self):
         init_log()
         self.app = FastAPI()
