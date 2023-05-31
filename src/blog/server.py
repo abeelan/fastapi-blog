@@ -5,9 +5,9 @@
 import uvicorn
 from fastapi import FastAPI
 
-from src.blog import middlewares, routes
-from src.blog.config import settings
-from src.blog.log import init_log
+from blog import middlewares, routes
+from blog.config import settings
+from blog.log import init_log
 
 
 class Server:
