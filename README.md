@@ -55,3 +55,8 @@ $ python src/blog/cmdline.py migrate -- revision --autogenerate -m "init_table"
 ```shell
 $ python src/blog/cmdline.py migrate -- upgrade head
 ```
+
+### 安装 pytest 进行单元测试
+```shell
+$ poetry add -D pytest
+```
