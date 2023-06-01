@@ -8,7 +8,6 @@ from pydantic import BaseModel, constr
 
 from .models import BaseModel as DBModel
 
-
 ModelType = TypeVar("ModelType", bound=DBModel)
 CreateSchema = TypeVar("CreateSchema", bound=BaseModel)
 UpdateSchema = TypeVar("UpdateSchema", bound=BaseModel)

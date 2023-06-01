@@ -8,13 +8,8 @@ from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 
 from .models import Article
-from .schemas import (
-    CreateSchema,
-    ModelType,
-    UpdateSchema,
-    CreateArticleSchema,
-    UpdateArticleSchema,
-)
+from .schemas import (CreateArticleSchema, CreateSchema, ModelType,
+                      UpdateArticleSchema, UpdateSchema)
 
 
 class BaseDAO(Generic[ModelType, CreateSchema, UpdateSchema]):

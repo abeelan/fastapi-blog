@@ -9,7 +9,6 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 from .config import settings
 
-
 url = URL(
     drivername=settings.DATABASE.DRIVER,
     username=settings.DATABASE.get("USERNAME", None),

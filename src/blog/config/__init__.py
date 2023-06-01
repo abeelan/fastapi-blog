@@ -19,6 +19,7 @@ settings = Dynaconf(
     load_dotenv=True,  # 加载 .env
     env_switcher="BLOG_ENV",  # 用于切换模式的环境变量名称 BLOG_ENV=production
     lowercase_read=False,  # 禁用小写访问， settings.name 是不允许的
-    includes=[os.path.join(sys.prefix, "etc", "blog", "settings.yml")],  # 自定义配置覆盖默认配置
+    # 自定义配置覆盖默认配置
+    includes=[os.path.join(sys.prefix, "etc", "blog", "settings.yml")],
     base_dir=_BASE_DIR,  # 编码传入配置
 )

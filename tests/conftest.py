@@ -2,19 +2,17 @@
 
 import os
 from pathlib import Path
-from click.testing import CliRunner
 
 import pytest
 from alembic import command, config
+from click.testing import CliRunner
+from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
-from fastapi.testclient import TestClient
-
-from blog import migration
+from blog import migration, server
 from blog.config import settings
 from blog.db import SessionFactory
 from blog.models import Article
-from blog import migration, server
 
 
 @pytest.fixture()
@@ -63,8 +61,6 @@ def client():
     _s.init_app()
     _c = TestClient(app=_s.app)
     yield _c
-
-
 
 
 @pytest.fixture

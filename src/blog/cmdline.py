@@ -2,8 +2,9 @@
 命令行工具定义
 """
 
-import click
 from pathlib import Path
+
+import click
 from alembic import config
 from click import Context
 
