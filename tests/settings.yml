@@ -7,9 +7,9 @@ PORT: 8000
 DATABASE:
   DRIVER: mysql
   NAME: blog
-  HOST: 127.0.0.1
+  HOST: 192.168.1.222
   PORT: 3306
   USERNAME: root
-  PASSWORD: root
+  PASSWORD:
   QUERY:
     charset: utf8mb4

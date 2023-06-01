@@ -1,5 +1,7 @@
 ## 简介
 
+[教程地址](https://pyloong.github.io/pythonic-project-guidelines/practices/web/)
+
 本项目是一个基于 fastapi 异步 Web 框架搭建的博客系统，业务功能比较简单，但体现了从环境搭建到开发到测试发布的完整流程。
 
 环境：

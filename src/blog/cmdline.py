@@ -7,12 +7,10 @@ from pathlib import Path
 from alembic import config
 from click import Context
 
+import blog
 from blog import utils
 from blog.config import settings
 from blog.server import Server
-
-
-__version__ = "0.1.0"
 
 
 # 此装饰器将函数声明为一个 Click 命令组，并指定 invoke_without_command=True 选项以允许用户执行不带子命令的主命令。
@@ -26,7 +24,7 @@ __version__ = "0.1.0"
 @click.option("-V", "--version", is_flag=True, help="Show version and exit.")
 def main(ctx, version):
     if version:
-        click.echo(__version__)
+        click.echo(blog.__version__)
     elif ctx.invoked_subcommand is None:
         click.echo(ctx.get_help())
 
