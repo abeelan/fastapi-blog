@@ -14,19 +14,26 @@ from blog.config import settings
 from blog.server import Server
 
 
-# 此装饰器将函数声明为一个 Click 命令组，并指定 invoke_without_command=True 选项以允许用户执行不带子命令的主命令。
-# 也就是说，如果用户没有指定任何子命令，则将调用 main 函数。
+# 此装饰器将函数声明为一个 Click 命令组，如果用户没有指定任何子命令，则将调用 main 函数
+# invoke_without_command=True: 允许用户执行不带子命令的主命令
 @click.group(invoke_without_command=True)
-# 此装饰器将当前 Click 上下文对象作为第一个参数传递给该函数。
-# 上下文对象是一种包含有关 CLI 环境的信息和状态的对象，其中包括选项、参数、输入和输出等。在函数中，可以通过 ctx 参数访问上下文对象。
+# 此装饰器将当前 Click 上下文对象作为第一个参数传递给该函数
+# 上下文对象是一种包含有关 CLI 环境的信息和状态的对象，其中包括选项、参数、输入和输出等。
+# 在函数中，可以通过 ctx 参数访问上下文对象。
 @click.pass_context
 # 此装饰器定义了一个名为 --version 或 -V 的单个选项，其类型为布尔值（即是或否）默认情况下为 False。
 # 如果用户设置了该选项，则会打印版本号并退出
-@click.option("-V", "--version", is_flag=True, help="Show version and exit.")
+@click.option(
+    "-V", "--version", is_flag=True, help="Show version and exit."
+)
 def main(ctx, version):
+    """我自动变为命令行的帮助信息。"""
+    # 选项中的 --version 就是这里的 version 传参
     if version:
+        # 当匹配到选项的参数后，则执行
         click.echo(blog.__version__)
     elif ctx.invoked_subcommand is None:
+        # 当没有选项或者选项不匹配时，显示帮助信息，比如：blog  或者 blog aa
         click.echo(ctx.get_help())
 
 
@@ -45,6 +52,10 @@ def server(host, port, level):
         "HOST": host,
         "PORT": port,
     }
+    # 命令行调用方式为：
+    # blog server -h 192.168.xxx.xxx -p 9999 --level info
+    click.echo(f"[{level}] {host}:{port}")
+
     for name, value in kwargs.items():
         if value:
             settings.set(name, value)

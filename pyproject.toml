@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "基于 fastapi 异步 web 框架的博客项目"
 authors = ["lan <lanzy.nice@gmail.com>"]
 readme = "README.md"
+packages = [{include = "blog", from = "src"}]
 
 
 [tool.poetry.dependencies]
@@ -32,4 +33,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-example_blog = "blog.cmdline:main"
+blog = "blog.cmdline:main"
