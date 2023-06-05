@@ -4,7 +4,7 @@
 
 from fastapi import APIRouter, FastAPI
 
-from . import views
+from blog import views
 
 
 def router_v1():

@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 
 from blog.models import Article
 from blog.schemas import (CreateArticleSchema, CreateSchema, ModelType,
-                      UpdateArticleSchema, UpdateSchema)
+                          UpdateArticleSchema, UpdateSchema)
 
 
 class BaseDAO(Generic[ModelType, CreateSchema, UpdateSchema]):
@@ -30,11 +30,7 @@ class BaseDAO(Generic[ModelType, CreateSchema, UpdateSchema]):
         result = session.query(self.model).offset(offset).limit(limit).all()
         return result
 
-    def get_by_id(
-        self,
-        session: Session,
-        pk: int,
-    ) -> ModelType:
+    def get_by_id(self, session: Session, pk: int) -> ModelType:
         """接收一个 session 对象和模型的主键，返回匹配的单个模型实例"""
         return session.query(self.model).get(pk)
 

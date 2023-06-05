@@ -8,7 +8,6 @@ from pydantic import BaseModel, constr
 
 from blog.models import BaseModel as DBModel
 
-
 # TypeVar 可以用来定义一个抽象的类型参数，它表示一组类型之一，用于创建类型变量
 # ModelType 用于限定继承于 DBModel 的模型类
 ModelType = TypeVar("ModelType", bound=DBModel)
