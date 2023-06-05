@@ -6,9 +6,9 @@ from typing import Generic, List
 
 from sqlalchemy.orm import Session
 
-from .dao import ArticleDAO, BaseDAO
-from .models import Article
-from .schemas import CreateSchema, ModelType, UpdateSchema
+from blog.dao import ArticleDAO, BaseDAO
+from blog.models import Article
+from blog.schemas import CreateSchema, ModelType, UpdateSchema
 
 
 class BaseService(Generic[ModelType, CreateSchema, UpdateSchema]):
